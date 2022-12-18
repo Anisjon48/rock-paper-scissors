@@ -18,6 +18,8 @@ export const useGame = () => {
 
 	const clearGameParty = () => {
 		dispatch(clearGame());
+		let scores = gameRules[MyGame][computer];
+		dispatch(setScore(scores))
 	}
 
 	let computer = null;
@@ -57,9 +59,6 @@ export const useGame = () => {
 	useEffect(() => {
 		if (MyGame) {
 			dispatch(setBotPick(computer));
-			let scores = gameRules[MyGame][computer];
-			let myScore = scores;
-			dispatch(setScore(myScore))
 		}
 
 	}, [MyGame, computer, dispatch])
