@@ -1,13 +1,178 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import-normalize;
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap');
+
+* {
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+  --family: 'Barlow Semi Condensed', sans-serif;
+  --color-bg: radial-gradient(at top, hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+  --color-text-score: hsl(229, 64%, 46%);
+  --color-text-dark: hsl(229, 25%, 31%);
+  --fs-sm: 14px;
+  --fs-md: 16px;
+  --fw-normal: 600;
+  --fw-bold: 700;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+}
+
+body {
+  font-family: var(--family);
+  color: white;
+  font-weight: var(--fw-normal);
+  background: var(--color-bg);
+}
+
+.triagle {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: -1;
+  margin-top: 40px;
+}
+
+.choose-move-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.paper-move {
+  width: 180px;
+  height: 180px;
+  border: 20px solid transparent;
+  border-radius: 50%;
+  box-shadow: inset 0px 7px 2px rgba(128, 132, 172, 0.7),
+   0px 7px 0px hsl(230, 66%, 40%);
+  background: linear-gradient(white,white) padding-box, linear-gradient( to top ,hsl(230, 89%, 60%), hsl(230, 89%, 65%)) border-box;
+  cursor: pointer;
+}
+
+.scissors-move {
+  width: 180px;
+  height: 180px;
+  border: 20px solid transparent;
+  border-radius: 50%;
+  box-shadow: inset 0px 7px 2px rgba(171, 172, 128, 0.7),
+   0px 7px 0px hsl(42, 97%, 37%);
+  background: linear-gradient(white,white) padding-box, linear-gradient( to top ,hsl(39, 89%, 49%), hsl(40, 84%, 53%)) border-box;
+  cursor: pointer;
+  grid-column-start: 3;
+}
+
+.rock-move {
+  width: 180px;
+  height: 180px;
+  border: 20px solid transparent;
+  border-radius: 50%;
+  box-shadow: inset 0px 7px 2px rgba(172, 128, 135, 0.7),
+   0px 7px 0px hsl(349, 66%, 41%);
+  background: linear-gradient(white,white) padding-box, linear-gradient( to top ,hsl(349, 71%, 52%), hsl(349, 70%, 56%)) border-box;
+  cursor: pointer;
+  grid-column-start: 2;
+  grid-row-start: 2;
+  grid-row-end: 2;
+}
+.paper-move-process {
+  width: 230px;
+  height: 230px;
+  border: 30px solid transparent;
+  border-radius: 50%;
+  box-shadow: inset 0px 7px 2px rgba(128, 132, 172, 0.7),
+   0px 7px 0px hsl(230, 66%, 40%);
+  background: linear-gradient(white,white) padding-box, linear-gradient( to top ,hsl(230, 89%, 60%), hsl(230, 89%, 65%)) border-box;
+}
+
+.scissors-move-process {
+  width: 230px;
+  height: 230px;
+  border: 30px solid transparent;
+  border-radius: 50%;
+  box-shadow: inset 0px 7px 2px rgba(171, 172, 128, 0.7),
+   0px 7px 0px hsl(42, 97%, 37%);
+  background: linear-gradient(white,white) padding-box, linear-gradient( to top ,hsl(39, 89%, 49%), hsl(40, 84%, 53%)) border-box;
+}
+
+.rock-move-process {
+  width: 230px;
+  height: 230px;
+  border: 30px solid transparent;
+  border-radius: 50%;
+  box-shadow: inset 0px 7px 2px rgba(172, 128, 135, 0.7),
+   0px 7px 0px hsl(349, 66%, 41%);
+  background: linear-gradient(white,white) padding-box, linear-gradient( to top ,hsl(349, 71%, 52%), hsl(349, 70%, 56%)) border-box;
+}
+
+.main {
+  margin-top: 100px;
+}
+
+.choose-move {
+  display: grid;
+  grid-template-columns: 50px 50px 1fr;
+  gap: 80px
+}
+
+
+.choose-move-line-process {
+  display: flex;
+  justify-content: space-between;
+  gap: 150px;
+  margin-top: 100px;
+}
+
+.choose-move-process {
+  display: flex;
+  justify-content: space-between;
+}
+
+.choose-bot-move {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.choose-my-move {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pick {
+  font-size: 20px;
+  margin-bottom: 40px;
+  letter-spacing: 2px;
+  font-family: var(--family);
+  font-weight: var(--fw-normal);
+}
+
+.play-again {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.play-again span {
+  font-family: var(--family);
+  font-weight: var(--fw-bold);
+  font-size: 50px;
+  margin-bottom: 15px;
+  color: white;
+}
+
+.reset-game {
+  padding: 15px 70px;
+  border-radius: 10px;
+  background-color: white;
+  font-family: var(--family);
+  font-weight: var(--fw-bold);
+  font-size: 15px;
+  letter-spacing: 3px;
+  cursor: pointer;
 }
